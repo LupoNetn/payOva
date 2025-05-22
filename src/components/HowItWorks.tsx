@@ -1,4 +1,4 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 import { FaBook, FaEye, FaShoppingCart, FaCheckCircle } from "react-icons/fa";
 

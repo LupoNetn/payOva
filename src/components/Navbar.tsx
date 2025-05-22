@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MdMenu, MdClose } from "react-icons/md";
 import { UserButton, useUser } from "@clerk/clerk-react";

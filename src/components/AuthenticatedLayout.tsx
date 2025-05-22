@@ -1,6 +1,6 @@
-import React from "react";
+
 import { Outlet, Link } from "react-router-dom";
-import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import Navbar from "./Navbar";
 
 const AuthenticatedLayout = () => {

@@ -26,7 +26,7 @@
 
 | Layer       | Technology              |
 |-------------|--------------------------|
-| Frontend    | Next.js, Tailwind CSS    |
+| Frontend    | React.js, Tailwind CSS    |
 | Backend/DB  | Supabase (Database + Auth) |
 | Payments    | Paystack or Flutterwave  |
 | Auth        | Supabase Auth            |

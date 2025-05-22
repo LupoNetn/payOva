@@ -32,14 +32,14 @@ const Navbar = () => {
                   link.name.toLowerCase() === "login" ? (
                     <button
                       onClick={() => (window.location.href = link.link)} // or use useNavigate
-                      className="bg-secondary text-dark px-4 py-2 rounded-xl hover:bg-secondary/80 transition-all cursor-pointer"
+                      className="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-primary-dark transition-colors"
                     >
                       {link.name}
                     </button>
                   ) : (
                     <Link
                       to={link.link}
-                      className="text-dark text-md font-semibold"
+                      className="text-light text-md font-semibold"
                     >
                       {link.name}
                     </Link>
@@ -82,7 +82,7 @@ const Navbar = () => {
                       setOpen(false);
                       window.location.href = link.link;
                     }}
-                    className="w-full bg-primary text-dark font-semibold px-6 py-3 rounded-lg hover:bg-primary/80 transition-colors"
+                    className="w-full bg-primary text-light font-semibold px-6 py-3 rounded-lg hover:bg-primary/80 transition-colors"
                   >
                     {link.name}
                   </button>
@@ -90,7 +90,7 @@ const Navbar = () => {
                   <Link
                     to={link.link}
                     onClick={() => setOpen(false)}
-                    className="block text-dark text-lg font-medium hover:text-primary transition-colors"
+                    className="block text-secondary text-lg font-medium hover:text-primary transition-colors"
                   >
                     {link.name}
                   </Link>

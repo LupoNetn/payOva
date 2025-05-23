@@ -27,7 +27,7 @@ const Home = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <motion.h1
-                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary mb-4 leading-tight text-balance"
+                className="text-[2rem] sm:text-4xl lg:text-5xl font-extrabold text-primary mb-4 leading-tight text-balance"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}

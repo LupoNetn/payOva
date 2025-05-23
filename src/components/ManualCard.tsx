@@ -18,7 +18,8 @@ const ManualCard: React.FC<ManualCardProps> = ({ manual }) => {
       <h2 className="text-xl font-bold text-primary mb-2">{manual.title}</h2>
       <p className="text-gray-700 mb-2 line-clamp-2">{manual.description}</p>
       <p className="text-sm text-gray-500 mb-1">
-        <span className="font-semibold">Price:</span> ${manual.price}
+      <span className="font-semibold">Price:</span> &#8358;{manual.price}
+
       </p>
       <p className="text-sm text-gray-500 mb-4">
         <span className="font-semibold">Author:</span> {manual.author}
@@ -29,7 +30,7 @@ const ManualCard: React.FC<ManualCardProps> = ({ manual }) => {
         rel="noopener noreferrer"
         className="inline-block bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-dark transition-colors"
       >
-        Download
+        Purchase
       </Link>
     </motion.div>
   );

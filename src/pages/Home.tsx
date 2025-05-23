@@ -51,7 +51,7 @@ const Home = () => {
                  transition={{ delay: 0.3, duration: 0.5 }}
                  viewport={{ once: true }}
                >
-                 <Link to='/auth'>Get Started</Link>
+                 <Link to='/sign-in'>Get Started</Link>
                </motion.button>
         </div>
       </section>

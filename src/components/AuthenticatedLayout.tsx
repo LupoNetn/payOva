@@ -26,7 +26,7 @@ const AuthenticatedLayout = () => {
             <h2 className="text-2xl font-bold mb-4">You're signed out</h2>
             <p className="mb-4 text-gray-600">Please log in to access the app.</p>
             <Link
-              to="/login"
+              to="/sign-in"
               className="bg-primary text-white px-6 py-3 rounded-full font-medium"
             >
               Go to Login

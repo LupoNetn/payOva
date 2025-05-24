@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Features from "../components/Features";
@@ -44,15 +43,26 @@ const Home = () => {
               </motion.p>
             </motion.div>
           ))}
-          <motion.button
-                 className="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-primary-dark transition-colors"
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 transition={{ delay: 0.3, duration: 0.5 }}
-                 viewport={{ once: true }}
-               >
-                 <Link to='/sign-in'>Get Started</Link>
-               </motion.button>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-2">
+            <motion.button
+              className="bg-primary text-white text-sm sm:text-lg px-4 sm:px-8 py-2 sm:py-3 rounded-full font-medium sm:font-semibold shadow-lg hover:bg-primary-dark transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <Link to='/sign-in' className="w-full block text-white">Get Started</Link>
+            </motion.button>
+            <motion.button
+              className="bg-primary text-white text-sm sm:text-lg px-4 sm:px-8 py-2 sm:py-3 rounded-full font-medium sm:font-semibold shadow-lg hover:bg-primary-dark transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <Link to='/manuals' className="w-full block text-white">Browse Manuals</Link>
+            </motion.button>
+          </div>
         </div>
       </section>
       

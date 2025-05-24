@@ -45,11 +45,11 @@ const Navbar = () => {
                  }}
                 className="bg-light text-primary px-6 py-2 rounded-full font-semibold shadow hover:bg-white transition"
               >
-                {link.name}
+                <Link to={`${link.name.toLowerCase() === 'sign up'} ? '/sign-up' : '/sign-in'`}>{link.name}</Link> 
               </button>
             ))
           ) : (
-            <UserButton afterSignOutUrl="/" />
+            <UserButton />
           )}
         </div>
 

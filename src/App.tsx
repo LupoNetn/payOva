@@ -7,6 +7,7 @@ import SignUpPage from "./pages/SignUp";
 import AuthenticatedLayout from "./components/AuthenticatedLayout";
 import ManualFeed from "./pages/ManualFeed";
 import NoPage from "./components/NoPage";
+import ManualDetails from "./components/ManualDetails";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
 
         <Route path="/" element={<AuthenticatedLayout />}>
         <Route path="manuals" element={<ManualFeed />} />
+        <Route path="manuals/:id" element={<ManualDetails />} />
       </Route>
       <Route path="*" element={<NoPage />}/>
       </Routes>

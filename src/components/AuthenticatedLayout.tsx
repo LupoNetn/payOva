@@ -2,6 +2,7 @@
 import { Outlet, Link } from "react-router-dom";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const AuthenticatedLayout = () => {
   return (
@@ -21,6 +22,7 @@ const AuthenticatedLayout = () => {
 
       {/* If user is signed out, show fallback */}
       <SignedOut>
+        <Navbar />
         <div className="min-h-screen flex items-center justify-center text-center p-8">
           <div>
             <h2 className="text-2xl font-bold mb-4">You're signed out</h2>
@@ -33,6 +35,7 @@ const AuthenticatedLayout = () => {
             </Link>
           </div>
         </div>
+        <Footer />
       </SignedOut>
     </div>
   );

@@ -8,7 +8,9 @@ interface ManualCardProps {
 
 const ManualCard: React.FC<ManualCardProps> = ({ manual }) => {
   return (
-    <motion.div
+    <Link to={`/manuals/${manual.id}`} className="group">
+      {/* Wrapping the card with Link to navigate to the manual details page */}
+     <motion.div
       className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-sm hover:shadow-xl transition-shadow duration-300"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -33,6 +35,7 @@ const ManualCard: React.FC<ManualCardProps> = ({ manual }) => {
         Purchase
       </Link>
     </motion.div>
+    </Link>
   );
 };
 

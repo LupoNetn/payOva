@@ -1,67 +1,58 @@
-
-import { motion } from 'framer-motion';
-
-const featureList = [
-  {
-    title: "Secure Payments",
-    description: "Every payment is tracked with a unique ID to prevent fake receipts and ensure transparency.",
-  },
-  {
-    title: "Easy Verification",
-    description: "Class reps can quickly verify student payments through a dashboard—no more manual checks.",
-  },
-  {
-    title: "Real-time Tracking",
-    description: "Students and reps get real-time updates on payment status, ensuring clarity and confidence.",
-  },
-];
-
-// Animation variants
-const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
-  visible: () => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay:  0.2,
-      duration: 0.6,
-      type: 'spring',
-    },
-  }),
-};
+import { motion } from "framer-motion";
 
 const Features = () => {
   return (
-    <motion.div
-      className="py-10 px-4 text-center"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-    >
-      <motion.h2
-        className="text-3xl font-bold text-primary mb-8"
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        Features
-      </motion.h2>
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            Why Choose PayOva?
+          </h2>
+          <p className="text-xl text-gray-600">
+            Experience the convenience of digital course material management
+          </p>
+        </motion.div>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {featureList.map((feature, index) => (
-          <motion.div
-            key={index}
-            custom={index}
-            variants={fadeInUp}
-            className="bg-light p-6 rounded-xl shadow-md"
-          >
-            <h3 className="text-xl font-semibold text-dark mb-2">{feature.title}</h3>
-            <p className="text-muted">{feature.description}</p>
-          </motion.div>
-        ))}
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              title: "Secure Payments",
+              description: "Safe and reliable payment processing for all transactions",
+              icon: "🔒"
+            },
+            {
+              title: "Instant Access",
+              description: "Get immediate access to your purchased materials",
+              icon: "⚡"
+            },
+            {
+              title: "Easy Management",
+              description: "Simple dashboard for tracking and managing materials",
+              icon: "📊"
+            }
+          ].map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <span className="text-4xl mb-4 block">{feature.icon}</span>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600">{feature.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </motion.div>
+    </section>
   );
 };
 

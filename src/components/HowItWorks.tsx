@@ -1,84 +1,60 @@
-
 import { motion } from "framer-motion";
-import { FaBook, FaEye, FaShoppingCart, FaCheckCircle } from "react-icons/fa";
-
-const steps = [
-  {
-    icon: <FaBook size={36} className="text-primary" />,
-    title: "Reps Create Manuals",
-    description: "Class reps list all available manuals on PayOva.",
-  },
-  {
-    icon: <FaEye size={36} className="text-primary" />,
-    title: "Users View Manuals",
-    description: "Students browse manuals to find what they need.",
-  },
-  {
-    icon: <FaShoppingCart size={36} className="text-primary" />,
-    title: "Users Buy Manuals",
-    description: "Add manuals to cart and make secure payments.",
-  },
-  {
-    icon: <FaCheckCircle size={36} className="text-primary" />,
-    title: "Reps Confirm & Deliver",
-    description: "Payments are confirmed and manuals handed out.",
-  },
-];
-
-// Animation variants for each step
-const variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-};
 
 const HowItWorks = () => {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-12">
-      <h2 className="text-4xl font-bold text-center mb-14 text-primary">
-        How PayOva Works
-      </h2>
+    <section className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            How It Works
+          </h2>
+          <p className="text-xl text-gray-600">
+            Get started with PayOva in three simple steps
+          </p>
+        </motion.div>
 
-      <div className="relative flex flex-col md:flex-row items-center justify-between gap-12">
-        {/* Horizontal blue connecting line on desktop */}
-        <div className="hidden md:block absolute top-10 left-12 right-12 h-1 bg-blue-600 -z-10 rounded"></div>
-
-        {steps.map((step, index) => (
-          <motion.div
-            key={index}
-            className="flex flex-col items-center text-center md:w-1/4 relative"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: index * 0.3 }}
-            variants={variants}
-          >
-            {/* Circle around icon */}
-            <div className="relative z-10 bg-white rounded-full p-3 shadow-lg border-4 border-blue-600 mb-4">
-              {step.icon}
-            </div>
-
-            {/* Mobile arc connectors except last step */}
-            {index !== steps.length - 1 && (
-              <div className="md:hidden absolute left-1/2 top-[4.5rem] w-8 h-8 rounded-tr-full border-r-4 border-t-4 border-blue-600 z-0" />
-            )}
-
-            <h3 className="font-semibold text-xl mb-2">{step.title}</h3>
-            <p className="text-muted max-w-xs">{step.description}</p>
-          </motion.div>
-        ))}
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              step: "01",
+              title: "Create Account",
+              description: "Sign up as a student or class representative"
+            },
+            {
+              step: "02",
+              title: "Choose Materials",
+              description: "Browse and select your course materials"
+            },
+            {
+              step: "03",
+              title: "Make Payment",
+              description: "Complete payment and access your materials"
+            }
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="relative bg-white p-6 rounded-xl shadow-lg"
+            >
+              <span className="absolute -top-4 -right-4 text-6xl font-bold text-primary/10">
+                {item.step}
+              </span>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+              <p className="text-gray-600">{item.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-
-      {/* Final descriptive text below steps */}
-      <motion.p
-        className="text-center text-lg mt-14 max-w-3xl mx-auto text-primary"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-      >
-        This ensures a seamless operaton, eliminates fake receipts and fake transactions.
-      </motion.p>
-    </div>
+    </section>
   );
 };
 

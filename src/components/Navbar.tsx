@@ -10,8 +10,8 @@ const navLinks = [
 ];
 
 const authLinks = [
-  { name: "Sign Up", link: "/signup" },
-  { name: "Log In", link: "/login" },
+  { name: "Sign Up", link: "/sign-up" },
+  { name: "Log In", link: "/sign-in" },
 ];
 
 const Navbar = () => {
@@ -75,39 +75,83 @@ const Navbar = () => {
 
       {/* MOBILE MENU */}
       <div
-        className={`fixed top-16 right-0 h-[calc(100vh-4rem)] w-64 transition-transform duration-300 ease-in-out z-40 bg-secondary
-        ${open ? "translate-x-0" : "translate-x-full"}
+        className={`absolute top-full left-0 right-0 transition-all duration-300 ease-in-out
+          ${open ? "opacity-100 visible" : "opacity-0 invisible"}
         `}
-        style={{ backgroundColor: "transparent" }}
       >
-        <ul className="flex flex-col mt-6 space-y-6 px-6 backdrop-blur-sm bg-white/10 rounded-l-lg shadow-lg min-h-full">
-          {navLinks.map((link, index) => (
-            <li key={index}>
-              <Link
-                to={link.link}
-                onClick={() => setOpen(false)}
-                className="block text-secondary text-lg font-medium hover:text-primary transition"
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
+        {/* Menu Content */}
+        <div 
+          className={`w-full bg-white shadow-lg transform transition-transform duration-300 origin-top
+            ${open ? "scale-y-100" : "scale-y-0"}
+          `}
+        >
+          <nav className="container mx-auto px-4 py-6">
+            <ul className="space-y-2">
+              {navLinks.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.link}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center py-3 px-4 text-gray-700 hover:bg-primary/5 rounded-lg transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-          {!isSignedIn && (
-            authLinks.map((link, index) => (
-              <li key={index}>
+            {/* Auth Links */}
+            {!isSignedIn && (
+              <div className="mt-6 space-y-3">
                 <button
                   onClick={() => {
-                   link.name.toLowerCase() === 'sign up' ? navigate('/sign-up') : navigate('/sign-in')
+                    navigate('/sign-up');
+                    setOpen(false);
                   }}
-                  className="w-full bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/80 transition"
+                  className="w-full bg-primary text-white font-medium px-4 py-3 rounded-xl hover:bg-primary-dark transition-colors"
                 >
-                  {link.name}
+                  Sign Up
                 </button>
-              </li>
-            ))
-          )}
-        </ul>
+                <button
+                  onClick={() => {
+                    navigate('/sign-in');
+                    setOpen(false);
+                  }}
+                  className="w-full border-2 border-primary text-primary font-medium px-4 py-3 rounded-xl hover:bg-primary hover:text-white transition-colors"
+                >
+                  Log In
+                </button>
+              </div>
+            )}
+
+            {/* Footer Links */}
+            <div className="mt-6 pt-6 border-t">
+              <div className="flex items-center justify-between text-sm text-gray-500">
+                <Link 
+                  to="/terms" 
+                  className="hover:text-primary transition-colors"
+                  onClick={() => setOpen(false)}
+                >
+                  Terms
+                </Link>
+                <Link 
+                  to="/privacy" 
+                  className="hover:text-primary transition-colors"
+                  onClick={() => setOpen(false)}
+                >
+                  Privacy
+                </Link>
+                <Link 
+                  to="/help" 
+                  className="hover:text-primary transition-colors"
+                  onClick={() => setOpen(false)}
+                >
+                  Help
+                </Link>
+              </div>
+            </div>
+          </nav>
+        </div>
       </div>
     </nav>
   );

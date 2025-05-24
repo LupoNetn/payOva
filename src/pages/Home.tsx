@@ -4,82 +4,65 @@ import Features from "../components/Features";
 import HowItWorks from "../components/HowItWorks";
 import CallToAction from "../components/CallToAction";
 
-const heroContent = [
-  {
-    headline: "Streamline Course Manual Sales with PayOva",
-    subheading:
-      "A secure platform for class representatives to manage manual sales and payments, making student purchases seamless and verifiable.",
-  },
-];
-
 const Home = () => {
   return (
     <>
-      <section>
-        <div className="min-h-[80vh] flex flex-col justify-center items-center px-4 text-center gap-6">
-          {heroContent.map((item, index) => (
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary-dark/5 to-transparent">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative min-h-[90vh] flex flex-col justify-center">
+          <div className="container mx-auto px-4 py-20 text-center">
             <motion.div
-              key={index}
-              className="w-full max-w-3xl"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl mx-auto space-y-6"
             >
-              <motion.h1
-                className="text-[2rem] sm:text-4xl lg:text-5xl font-extrabold text-primary mb-4 leading-tight text-balance"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-              >
-                {item.headline}
-              </motion.h1>
-              <motion.p
-                className="text-base sm:text-lg lg:text-xl text-muted leading-relaxed"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              >
-                {item.subheading}
-              </motion.p>
+              <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">
+                Revolutionizing Course Material Distribution
+              </h1>
+
+              <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+                Streamline your course material distribution with our secure, efficient platform designed for students and class representatives.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <Link 
+                  to="/sign-up" 
+                  className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-primary rounded-xl transition-all duration-300 hover:bg-primary-dark hover:scale-105 shadow-md hover:shadow-xl w-full sm:w-auto"
+                >
+                  Get Started Now
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" 
+                    viewBox="0 0 20 20" 
+                    fill="currentColor"
+                  >
+                    <path 
+                      fillRule="evenodd" 
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
+                      clipRule="evenodd" 
+                    />
+                  </svg>
+                </Link>
+                <Link 
+                  to="/manuals" 
+                  className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-primary border-2 border-primary rounded-xl transition-all duration-300 hover:bg-primary hover:text-white hover:scale-105 w-full sm:w-auto"
+                >
+                  Browse Manuals
+                </Link>
+              </div>
             </motion.div>
-          ))}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-2">
-            <motion.button
-              className="bg-primary text-white text-sm sm:text-lg px-4 sm:px-8 py-2 sm:py-3 rounded-full font-medium sm:font-semibold shadow-lg hover:bg-primary-dark transition-colors"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <Link to='/sign-in' className="w-full block text-white">Get Started</Link>
-            </motion.button>
-            <motion.button
-              className="bg-primary text-white text-sm sm:text-lg px-4 sm:px-8 py-2 sm:py-3 rounded-full font-medium sm:font-semibold shadow-lg hover:bg-primary-dark transition-colors"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <Link to='/manuals' className="w-full block text-white">Browse Manuals</Link>
-            </motion.button>
           </div>
         </div>
       </section>
-      
-      {/* Features Section */}
-      <section>
-        <Features />
-      </section>
-      
-      {/* How It Works Section */}
-      <section>
-        <HowItWorks />
-      </section>
 
-      {/* Call To Action */}
-      <section>
-        <CallToAction />
-      </section>
+      <Features />
+      <HowItWorks />
+      <CallToAction />
     </>
   );
 };

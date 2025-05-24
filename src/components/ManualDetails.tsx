@@ -69,7 +69,7 @@ const ManualDetails = () => {
                     <p className="text-lg font-semibold text-gray-900">{manual.level || "N/A"}</p>
                   </div>
                 </div>
-                <div className="space-y-6">
+                {/* <div className="space-y-6">
                   <div>
                     <h3 className="text-sm font-medium text-gray-500 mb-1">Semester</h3>
                     <p className="text-lg font-semibold text-gray-900">{manual.semester || "N/A"}</p>
@@ -78,7 +78,7 @@ const ManualDetails = () => {
                     <h3 className="text-sm font-medium text-gray-500 mb-1">Lecturer</h3>
                     <p className="text-lg font-semibold text-gray-900">{manual.lecturer || "Not specified"}</p>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* Preview Section */}
